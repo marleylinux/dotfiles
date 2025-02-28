@@ -1,11 +1,11 @@
 # Define CPUs governor
 # valid governors: ondemand, performance, powersave, conservative, userspace.
-#governor='performance'
+governor='performance'
 
 # Limit frequency range
 # Valid suffixes: Hz, kHz (default), MHz, GHz, THz
-min_freq="4GHz"
-max_freq="4GHz"
+min_freq="4.8GHz"
+max_freq="4.9GHz"
 
 # Specific frequency to be set.
 # Requires userspace governor to be available.
