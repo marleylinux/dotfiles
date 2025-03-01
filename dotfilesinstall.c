@@ -51,7 +51,11 @@ const char* get_current_directory() {
 
 void install_pictures(const char *username) {
     printf("\033[33mInstalling\033[0m \033[34mPictures...\033[0m\n");
-    cp_r("Pictures", username);
+
+    char destination[1024];
+    snprintf(destination, sizeof(destination), "/home/%s/Pictures", username);
+
+    cp_r("Pictures", destination);
 }
 
 void install_bashrc(const char *username) {
@@ -71,45 +75,71 @@ void install_vimrc(const char *username) {
 
 void install_pacman_conf(const char *username) {
     printf("\033[33mInstalling\033[0m \033[36mpacman.conf...\033[0m\n");
-    sudo_cp("pacman.conf", username);
+    sudo_cp("pacman.conf", "/etc/pacman.conf");
 }
 
 void install_cpupower(const char *username) {
-    printf("\033[33mInstalling\033[0m c\033[36mcpupower...\033[0m\n");
-    sudo_cp("cpupower", username);
+    printf("\033[33mInstalling\033[0m \033[36mcpupower...\033[0m\n");
+    sudo_cp("cpupower", "/etc/default/cpupower");
 }
 
 void install_nwg_panel(const char *username) {
     printf("\033[33mInstalling\033[0m \033[35mnwg-panel...\033[0m\n");
-    cp_r("nwg-panel", username);
+
+    char destination[1024];
+    snprintf(destination, sizeof(destination), "/home/%s/.config/nwg-panel", username);
+
+    cp_r("nwg-panel", destination);
 }
+
 
 void install_nwg_drawer(const char *username) {
     printf("\033[33mInstalling\033[0m \033[35mnwg-drawer...\033[0m\n");
-    cp_r("nwg-drawer", username);
+
+    char destination[1024];
+    snprintf(destination, sizeof(destination), "/home/%s/.config/nwg-drawer", username);
+
+    cp_r("nwg-drawer", destination);
 }
+
 
 void install_nwg_bar(const char *username) {
     printf("\033[33mInstalling\033[0m \033[35mnwg-bar...\033[0m\n");
-    cp_r("nwg-bar", username);
+
+    char destination[1024];
+    snprintf(destination, sizeof(destination), "/home/%s/.config/nwg-bar", username);
+
+    cp_r("nwg-bar", destination);
 }
 
+
 void install_mangohud(const char *username) {
-    printf("\033[33mInstalling\033[0m \033[33mmangohud...\033[0m\n");
-    cp_r("MangoHud", username);
+    printf("\033[33mInstalling\033[0m \033[33mMangoHud...\033[0m\n");
+
+    char destination[1024];
+    snprintf(destination, sizeof(destination), "/home/%s/.config/MangoHud", username);
+
+    cp_r("MangoHud", destination);
 }
 
 void install_hypr(const char *username) {
     printf("\033[33mInstalling\033[0m \033[36mhypr\033[0m\n");
-    cp_r("hypr", username);
+
+    char destination[1024];
+    snprintf(destination, sizeof(destination), "/home/%s/.config/hypr", username);
+
+    cp_r("hypr", destination);
 }
+
 
 void install_nwg_hello(const char *username) {
     printf("\033[33mInstalling\033[0m \033[31mnwg-hello...\033[0m\n");
-    sudo_cp_r("nwg-hello", username);
+    sudo_cp_r("nwg-hello", "/etc/nwg-hello");
+
     printf("\033[33mInstalling\033[0m \033[31mgirl.png...\033[0m\n");
     sudo_cp("Pictures/girl.png", "/usr/share/nwg-hello/girl.png");
 }
+
 
 void install_adw_gtk3(const char *username) {
     printf("\033[33mInstalling\033[0m \033[32madw-gtk3v5.6.tar.xz...\033[0m\n");
