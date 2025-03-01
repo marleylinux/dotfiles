@@ -15,3 +15,21 @@ vimrc
 bashrc
 
 nwg apps
+
+
+Instructions. 
+
+##YOU MAY NEED TO sudo chmod 777 the app if it wont launch as ./ 
+
+git clone https://github.com/marleylinux/dotfiles && cd dotfiles
+
+then gcc dotfilesinstaller.c -o DotfilesInstaller && ./DotfilesInstaller
+
+-----------------------------------------------------------------------------------
+
+We can also chain the commands together at once.
+
+git clone https://github.com/marleylinux/dotfiles && cd dotfiles && gcc dotfilesinstaller.c -o DotfilesInstaller && ./DotfilesInstaller
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
