@@ -1,6 +1,6 @@
-\\ DotfilesInstaller + Dotfiles //
-
-This is my current dotfiles + an dotfilesinstall script to download, install and copy the correct files in the correct places
+\ dotfiles /
+-----------------------------------------------------------------------------------
+This is my current dotfiles
 
 It's a good 'minimal' base from what I believe. 
 
@@ -23,13 +23,7 @@ Instructions.
 
 git clone https://github.com/marleylinux/dotfiles && cd dotfiles
 
-then gcc dotfilesinstaller.c -o DotfilesInstaller && ./DotfilesInstaller
+put everything where it needs to go.
 
 -----------------------------------------------------------------------------------
-
-We can also chain the commands together at once.
-
-git clone https://github.com/marleylinux/dotfiles && cd dotfiles && gcc dotfilesinstaller.c -o DotfilesInstaller && ./DotfilesInstaller
-
------------------------------------------------------------------------------------------------------------------------------------------------
 
