@@ -153,13 +153,34 @@ void install_catppuccin_cursors(const char *username) {
 
 void remove_source_directory() {
     char choice;
+    char cwd[1024];
+
+    if (getcwd(cwd, sizeof(cwd)) == NULL) {
+        perror("Error getting current directory");
+        return;
+    }
+
+    // Ensure it's the "dotfiles" directory
+    if (strstr(cwd, "dotfiles") == NULL) {
+        printf("\033[31mAbort:\033[0m Not in a 'dotfiles' directory!\n");
+        return;
+    }
+
     printf("\033[33mDo you want to\033[0m \033[31mremove\033[0m \033[33mthe source\033[0m \033[36mdotfiles\033[0m \033[35mdirectory\033[0m \033[32m(y/\033[0m\033[31mn):\033[0m ");
     scanf(" %c", &choice);
+
     if (choice == 'y' || choice == 'Y') {
-        char command[1024];
-        snprintf(command, sizeof(command), "sudo rm -rf $(pwd)");
-        system(command);
-        printf("\033[33mSource\033[0m \033[36mdotfiles\033[0m \033[33mDirectory removed\033[0m\n");
+        printf("\033[31mConfirm deletion of\033[0m \033[36m%s\033[0m \033[31m(y/n)?\033[0m ", cwd);
+        scanf(" %c", &choice);
+
+        if (choice == 'y' || choice == 'Y') {
+            char command[1024];
+            snprintf(command, sizeof(command), "sudo rm -rf %s", cwd);
+            system(command);
+            printf("\033[33mSource\033[0m \033[36mdotfiles\033[0m \033[33mDirectory removed\033[0m\n");
+        } else {
+            printf("\033[33mDeletion cancelled.\033[0m\n");
+        }
     } else {
         printf("\033[33mSource\033[0m \033[36mdotfiles\033[0m \033[33mDirectory retained\033[0m\n");
     }
